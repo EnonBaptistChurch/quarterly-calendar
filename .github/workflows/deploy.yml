@@ -20,12 +20,18 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install
-      - run: npm run generate
+      - name: Install dependencies
+        run: npm install
+        working-directory: quarterly-calendar
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Generate static site
+        run: npm run generate
+        working-directory: quarterly-calendar
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: quarterly-calendar/.output/public
 
   deploy:
     needs: build
