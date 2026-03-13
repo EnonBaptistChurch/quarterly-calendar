@@ -155,7 +155,7 @@
         <!-- Add new -->
         <div class="palette-new">
           <input v-model="newTmpl.title" class="p-input" placeholder="New type name..." @keyup.enter="addTemplate" />
-          <input v-model="newTmpl.time" class="p-input p-time-input" type="time" placeholder="Default time (opt.)" />
+          <TimePicker v-model="newTmpl.time" />
           <div class="p-colors">
             <button
               v-for="c in eventColors" :key="c"
@@ -316,7 +316,7 @@
           <h3 class="modal-title">Add Event</h3>
           <p class="modal-date">{{ formatModalDate(modal.date) }}</p>
           <input v-model="modal.title" class="modal-input" placeholder="Event title..." @keyup.enter="confirmAddEvent" ref="modalInput" />
-          <input v-model="modal.time" class="modal-input time-input" type="time" placeholder="Start time (optional)" />
+          <TimePicker v-model="modal.time" className="!mb-4" />
           <!-- Quick assign template -->
           <div class="modal-templates">
             <span class="modal-tmpl-label">Quick type:</span>
@@ -347,12 +347,13 @@
 <script>
 import { zipSync, strToU8 } from 'fflate'
 import schoolTermsData from '~/data/schoolTerms.js'
+import TimePicker from './time-component.vue'
 
 let _uid = 1
 
 export default {
   name: 'QuarterlyCalendar',
-
+  components: { TimePicker },
   data() {
     const today = new Date()
     return {
@@ -382,13 +383,13 @@ export default {
         { id: _uid++, title: 'Prayer Meeting',    time: '19:30', color: '#6366f1' },
         { id: _uid++, title: 'Discoverers',       time: '19:30', color: '#f43f5e' },
         { id: _uid++, title: 'First Steps',       time: '9:00',  color: '#ffeffe' },
-        { id: _uid++, title: 'Coffee Morning',    time: '10:00', color: '#f59e0b' },
+        { id: _uid++, title: 'Coffee Morning',    time: '10:00', color: '#0a2000' },
         { id: _uid++, title: 'Small Groups',      time: '10:00', color: '#10b981' },
         { id: _uid++, title: 'Small Groups',      time: '19:30', color: '#10b981' },
         { id: _uid++, title: 'Small Groups',      time: '19:45', color: '#10b981' },
-        { id: _uid++, title: 'Members Meeting',   time: '',      color: '#ec4899' },
-        { id: _uid++, title: "Men's Meeting",     time: '',      color: '#8b5cf6' },
-        { id: _uid++, title: 'Ladies Meeting',    time: '',      color: '#14b8a6' },
+        { id: _uid++, title: 'Members Meeting',   time: '',      color: '#14b8a6' },
+        { id: _uid++, title: "Men's Meeting",     time: '',      color: '#1401f0' },
+        { id: _uid++, title: 'Ladies Meeting',    time: '',      color: '#ec4899' },
         { id: _uid++, title: '(Rooted and Grounded)', time: '9:00', color: '#14b8a6' },
         { id: _uid++, title: 'Joint Meeting',     time: '',      color: '#14b8a6' },
         { id: _uid++, title: 'Pastor',            time: '',      color: '#60a5fa' },
@@ -1343,7 +1344,7 @@ export default {
 .panel-body { padding: 14px 16px; }
 
 /* ── Palette Tab ── */
-.palette-tab { display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.palette-tab { display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap; min-height: 200px; }
 .palette-chips { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; align-content: flex-start; }
 .palette-chip {
   display: flex; align-items: center; gap: 5px;
