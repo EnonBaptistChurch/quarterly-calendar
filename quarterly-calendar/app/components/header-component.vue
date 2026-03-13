@@ -1,9 +1,9 @@
 <template>
     <div className="bg-blue-950 text-white">
       <a href="/">
-        <h1 className="text-3xl font-bold">
+        <div className="text-3xl font-bold">
           Enon Baptist Church Tools
-        </h1>
+        </div>
       </a>
     </div>
 </template>
