@@ -392,7 +392,7 @@ export default {
         { id: _uid++, title: 'Ladies Meeting',    time: '',      color: '#ec4899' },
         { id: _uid++, title: '(Rooted and Grounded)', time: '9:00', color: '#14b8a6' },
         { id: _uid++, title: 'Joint Meeting',     time: '',      color: '#14b8a6' },
-        { id: _uid++, title: 'Pastor',            time: '',      color: '#60a5fa' },
+        { id: _uid++, title: 'Pastor Paul',            time: '',      color: '#60a5fa' },
       ],
 
       newTmpl: { title: '', time: '', color: '#6366f1' },
