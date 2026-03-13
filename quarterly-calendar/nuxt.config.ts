@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/quarterly-calendar/'
   },
-
+  modules: ['@nuxtjs/tailwindcss'],
+  css: ['~/assets/css/tailwind.css'],
   nitro: {
     prerender: {
       crawlLinks: true
