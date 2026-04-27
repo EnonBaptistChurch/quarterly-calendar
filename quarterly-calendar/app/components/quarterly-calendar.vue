@@ -73,7 +73,7 @@
             </div>
             <div
               v-for="(week, wi) in allWeeks" :key="'cell-' + di + '-' + wi"
-              class="day-cell bg-white min-h-[54px] p-0.5 relative cursor-pointer transition-colors duration-75 overflow-hidden hover:bg-slate-50"
+              class="day-cell bg-white min-h-[54px] min-h-[75px] p-0.5 relative cursor-pointer transition-colors duration-75 overflow-hidden hover:bg-slate-50"
               :class="{
                 'bg-blue-50 today-cell': isToday(week.startDate, di),
                 'opacity-25 pointer-events-none': !isInQuarter(week.startDate, di),
@@ -762,14 +762,10 @@ export default {
           if (dow === 3) {
             if (this.dateToKey(date) === lastWedKey) {
               add(date, 'Small Groups', '10:00', '#10b981')
-              add(date, 'Small Groups', '19:30', '#10b981')
+              add(date, 'Small Groups', '19:45', '#10b981')
             } else {
               add(date, 'Bible Study & PM', '19:30', '#6366f1')
             }
-          }
-          if (dow === 4) {
-            const diff = date.getTime() - lastWed.getTime()
-            if (diff >= 0 && diff <= 3 * 86400000) add(date, 'Small Groups', '19:45', '#10b981')
           }
         }
       }
