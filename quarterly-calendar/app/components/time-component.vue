@@ -1,5 +1,5 @@
 <template>
-  <div class="relative inline-block w-full mb-10" @keydown.prevent.stop="handleKeydown" tabindex="0" ref="wrapper">
+  <div class="relative inline-block w-full mb-4" @keydown.prevent.stop="handleKeydown" tabindex="0" ref="wrapper">
     <!-- Input field -->
     <div @click="toggleDropdown"
          class="cursor-pointer border border-gray-300 rounded-md bg-white px-3 py-2  flex justify-between items-center shadow-sm hover:shadow-md transition w-full">
